@@ -7,6 +7,13 @@ export LSCOLORS=gacacxdxbxegedabagacad
 
 export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
 
+# virtualenv/virtualenvwrapaper
+venv_sh=/usr/local/bin/virtualenvwrapper.sh
+if [[ -f ${venv_sh} ]]; then
+    source ${venv_sh}
+fi
+
+# Load aliases
 if [[ -f "${HOME}/.bash_aliases" ]]; then
     source "${HOME}/.bash_aliases"
 fi
