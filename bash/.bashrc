@@ -13,6 +13,9 @@ if [[ -f ${venv_sh} ]]; then
     source ${venv_sh}
     # pip should only run if there is a virtualenv currently activated
     export PIP_REQUIRE_VIRTUALENV=true
+    gpip(){
+	PIP_REQUIRE_VIRTUALENV="" pip "$@"
+    }
 fi
 
 # Load aliases
