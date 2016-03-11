@@ -11,6 +11,8 @@ export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
 venv_sh=/usr/local/bin/virtualenvwrapper.sh
 if [[ -f ${venv_sh} ]]; then
     source ${venv_sh}
+    # pip should only run if there is a virtualenv currently activated
+    export PIP_REQUIRE_VIRTUALENV=true
 fi
 
 # Load aliases
