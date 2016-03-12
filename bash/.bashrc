@@ -13,8 +13,11 @@ if [[ -f ${venv_sh} ]]; then
     source ${venv_sh}
     # pip should only run if there is a virtualenv currently activated
     export PIP_REQUIRE_VIRTUALENV=true
-    gpip(){
-	PIP_REQUIRE_VIRTUALENV="" pip "$@"
+    gpip2(){
+	PIP_REQUIRE_VIRTUALENV="" /usr/local/bin/pip2 "$@"
+    }
+    gpip3(){
+	PIP_REQUIRE_VIRTUALENV="" /usr/local/bin/pip3 "$@"
     }
 fi
 
