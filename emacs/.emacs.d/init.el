@@ -96,6 +96,12 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
+(use-package markdown-mode
+  :ensure t)
+;; use gfm (github flavored markdown) supplied by markdown-mode
+(add-to-list 'auto-mode-alist '("\\.md$" . gfm-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . gfm-mode))
+
 
 ;;
 ;; Customizations
@@ -128,6 +134,7 @@
 ;; that temporarily turns on line numbers.
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 (global-set-key (kbd "C-x l") 'goto-line)
+(setq linum-format "%4d \u2502 ")
 
 ;; Highlight the current line
 (global-hl-line-mode t)
