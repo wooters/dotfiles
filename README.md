@@ -1,28 +1,27 @@
 # dotfiles
-Repo to hold config files.
+Repo to hold my config files. (Also, a script for setting up my environment on a new Mac.)
 
-## Clone the repo
+## Install
 
-```bash
+```
 git clone git@github.com:wooters/dotfiles.git ~/.dotfiles
-```
-
-## Setting up a new mac
-
-```bash
-cd ~/.dotfiles
-./mac_setup.sh
-```
-
-## Install dotfiles
-
-(Don't need to do this if running ```mac_setup.sh``` above.)
-
-```bash
 cd ~/.dotfiles
 stow bash
 stow tmux
 stow emacs
 ```
 
+This assumes:
+
+- The ssh key for the computer you are installing to has been added to the Github repo.
+- [GNU Stow](https://www.gnu.org/software/stow/) is installed.
+
+## Setting up a new Mac
+
+```
+curl https://raw.githubusercontent.com/wooters/dotfiles/master/mac_setup.sh | sh
+```
+
+This will generate an ssh key, install the ```dotfiles```, install OSX developer tools,
+and a bunch of other goodies.
 
