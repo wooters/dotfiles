@@ -73,6 +73,9 @@
   :diminish yas-minor-mode
   :commands yas-global-mode)
 
+(use-package org :ensure t)
+
+  
 (use-package cc-mode
   :ensure t
   :bind (("C-c RET" . ff-find-related-file)
@@ -107,6 +110,15 @@
 
 (use-package sbt-mode
   :ensure t)
+
+(use-package git-gutter
+  :ensure t
+  :config (global-git-gutter-mode +1))
+
+
+(use-package beacon
+  :ensure t
+  :config (beacon-mode 1))
 
 
 ;;
