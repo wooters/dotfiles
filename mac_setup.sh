@@ -16,15 +16,6 @@ if [ ! -f ~/.ssh/id_rsa.pub ]; then
     
 fi
 
-# set up dotfiles
-local_dot_repo=${HOME}/.dotfiles
-if [ ! -d ${local_dot_repo} ]; then
-    git clone git@github.com:wooters/dotfiles.git ${local_dot_repo}
-    cd ${local_dot_repo}
-    stow bash
-    stow tmux
-    stow emacs
-fi
 
 # 256 color in bash (requires iterm)
 # Put something like this in your .bashrc:
@@ -70,6 +61,15 @@ pip install virtualenvwrapper
 /usr/local/bin/pip2 install flake8 jedi autopep8
 /usr/local/bin/pip3 install flake8 jedi autopep8
 
+# set up dotfiles
+local_dot_repo=${HOME}/.dotfiles
+if [ ! -d ${local_dot_repo} ]; then
+    git clone git@github.com:wooters/dotfiles.git ${local_dot_repo}
+    cd ${local_dot_repo}
+    stow bash
+    stow tmux
+    stow emacs
+fi
 
 
 
