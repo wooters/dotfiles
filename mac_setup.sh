@@ -42,10 +42,25 @@ brew cask install torbrowser
 brew install dirmngr libusb-compat readline
 brew install gnupg2 gnutls glib coreutils
 brew install sqlite gdbm gettext pcre xz d-bus
-brew install git wget tree p7zip stow tmux
+brew install git wget tree p7zip stow tmux sox
 brew install emacs
+
+# mongodb (including the bsondump utility)
+brew install mongodb
+
+# python
 brew install python python3
+
+# Scala
 brew install scala sbt  # requires java (see 'brew cask install java' above)
+
+# R
+brew install Caskroom/cask/xquartz
+brew tap homebrew/science
+brew install R
+brew install Caskroom/cask/rstudio
+brew cask install basictex
+brew install libsvg curl libxml2 gdal geos boost
 
 # Install virtualenv and virtualenvwrapper for python
 # We can install these using the default python and when
