@@ -115,11 +115,15 @@
   :ensure t
   :config (global-git-gutter-mode +1))
 
-
 (use-package beacon
   :ensure t
   :config (beacon-mode 1))
 
+(use-package matlab-mode
+  :ensure t)
+(add-to-list 'auto-mode-alist '("\\.m$" . matlab-mode))
+(setq matlab-indent-function t)
+(setq matlab-shell-command "octave")
 
 ;;
 ;; Customizations
