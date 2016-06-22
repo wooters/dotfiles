@@ -10,9 +10,14 @@ fi
 export CLICOLOR=1
 export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
 
-if [[ -d "${HOME}/.bash-git-prompt" ]]; then
-    source "${HOME}/.bash-git-prompt/gitprompt.sh"
+if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+    GIT_PROMPT_THEME=Default
     GIT_PROMPT_ONLY_IN_REPO=1
+    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+fi
+
+if [ -f "${HOME}/.git-completion.bash" ]; then
+    source ${HOME}/.git-completion.bash
 fi
 
 # virtualenv/virtualenvwrapaper

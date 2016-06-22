@@ -35,6 +35,7 @@ brew cask install java
 brew cask install iterm2
 brew cask install google-chrome
 brew cask install google-drive
+brew cask install firefox
 brew cask install witch
 brew cask install torbrowser
 
@@ -42,8 +43,13 @@ brew cask install torbrowser
 brew install dirmngr libusb-compat readline
 brew install gnupg2 gnutls glib coreutils
 brew install sqlite gdbm gettext pcre xz d-bus
-brew install git wget tree p7zip stow tmux sox
+brew install wget tree p7zip stow tmux sox
 brew install emacs
+
+# Git
+brew install git
+brew install bash-git-prompt
+curl -o .git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
 # mongodb (including the bsondump utility)
 brew install mongodb
