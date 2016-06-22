@@ -8,7 +8,7 @@ if [[ ${TERM_PROGRAM} == "iTerm.app" ]]; then
 fi
 
 export CLICOLOR=1
-export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
+export ALTERNATE_EDITOR='' EDITOR=emacsclient VISUAL=emacsclient
 
 if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
     GIT_PROMPT_THEME=Default
