@@ -1,11 +1,19 @@
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+if [[ ${TERM_PROGRAM} == "iTerm.app" ]]; then
+    # Base16 Shell
+    BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+    [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+    export LSCOLORS=gacacxdxbxegedabagacad
+fi
 
 export CLICOLOR=1
-export LSCOLORS=gacacxdxbxegedabagacad
-
 export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
+
+if [[ -d "${HOME}/.bash-git-prompt" ]]; then
+    source "${HOME}/.bash-git-prompt/gitprompt.sh"
+    GIT_PROMPT_ONLY_IN_REPO=1
+fi
 
 # virtualenv/virtualenvwrapaper
 venv_sh=/usr/local/bin/virtualenvwrapper.sh
