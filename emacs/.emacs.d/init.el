@@ -177,6 +177,7 @@
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+(setq py-autopep8-options '("--max-line-length=150"))
 
 
 ;;
