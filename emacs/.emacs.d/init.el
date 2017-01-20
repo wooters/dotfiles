@@ -73,6 +73,9 @@
   :diminish yas-minor-mode
   :commands yas-global-mode)
 
+(setq yas-snippet-dirs '("/Users/wooters/projects/yasnippet-snippets"))
+(yas-global-mode 1)
+
 (use-package org :ensure t)
 
   
