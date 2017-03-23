@@ -76,8 +76,11 @@
 (setq yas-snippet-dirs '("/Users/wooters/projects/yasnippet-snippets"))
 (yas-global-mode 1)
 
-(use-package org :ensure t)
+(use-package org
+  :ensure t)
 
+(use-package dumb-jump
+  :ensure t)
   
 (use-package cc-mode
   :ensure t
