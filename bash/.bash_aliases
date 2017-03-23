@@ -21,5 +21,5 @@ alias nw='tmux new-window'
 # Splits the current window vertically and edits a given file
 # in the lower tmux window
 function e {
-    tmux split-window "$EDITOR $@"
+    tmux split-window "emacsclient -c $@"
 }

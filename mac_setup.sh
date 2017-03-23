@@ -45,6 +45,7 @@ brew install gnupg2 gnutls glib coreutils
 brew install sqlite gdbm gettext pcre xz d-bus
 brew install wget tree p7zip stow tmux sox
 brew install emacs
+brew install the_silver_searcher  # ag
 
 # Git
 brew install git
