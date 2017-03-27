@@ -10,6 +10,10 @@ fi
 export CLICOLOR=1
 export ALTERNATE_EDITOR='' EDITOR=emacsclient VISUAL=emacsclient
 
+if [ -f "$(brew --prefix bash-completion)/etc/bash_completion" ]; then
+    source "$(brew --prefix bash-completion)/etc/bash_completion"
+fi
+
 if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
     GIT_PROMPT_THEME=Default
     GIT_PROMPT_ONLY_IN_REPO=1
