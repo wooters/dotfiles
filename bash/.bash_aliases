@@ -1,5 +1,5 @@
-alias l='ls -F'
-alias ll='ls -Fal'
+alias l='exa -F'
+alias ll='exa -l -F --git --color-scale -h'
 alias pu=pushd
 alias po=popd
 alias dirs='dirs -v'
