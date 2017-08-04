@@ -14,10 +14,32 @@ if [ -f "$(brew --prefix bash-completion)/etc/bash_completion" ]; then
     source "$(brew --prefix bash-completion)/etc/bash_completion"
 fi
 
-if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-    GIT_PROMPT_THEME=Default
-    GIT_PROMPT_ONLY_IN_REPO=1
-    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+if [ -f "${HOME}/projects/codalab_bash/codalab_bash.sh" ]; then
+    source "${HOME}/projects/codalab_bash/codalab_bash.sh"
+fi
+
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+    
+    function prompt_callback {
+        local cl_prompt
+        if [ -z ${HAVE_CL_BASH+x} ]; then
+            echo ""
+        else
+            if ! cl_prompt=$(CL_PROMPT_INFO); then
+                echo ""
+            else
+                if ! CL_WS_IS_CONSISTENT; then
+                    echoc " [${BoldRed}${cl_prompt}${ResetColor}]"
+                else
+                    echo " [${cl_prompt}]"
+                fi
+            fi
+        fi
+    }
+    
+    # For customization info see: https://github.com/magicmonty/bash-git-prompt
+    __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+    source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 
 if [ -f "${HOME}/.git-completion.bash" ]; then
