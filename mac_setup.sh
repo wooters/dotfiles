@@ -47,6 +47,7 @@ brew install wget tree p7zip stow tmux sox
 brew install emacs
 brew install the_silver_searcher  # ag
 brew install exa # better ls
+brew install fzf
 brew install bash_completion
 
 # Git
