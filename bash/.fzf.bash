@@ -12,3 +12,15 @@ fi
 # ------------
 source "/usr/local/opt/fzf/shell/key-bindings.bash"
 
+# Options to fzf command
+preview="--preview '[[ \$(file --mime {}) =~ binary ]] && echo {} no preview || \
+                 (highlight -O xterm256 -t 4 {} || cat {}) 2> /dev/null | head -500' \
+         --preview-window right"
+export FZF_DEFAULT_OPTS="-m --reverse --border --tabstop 4 ${preview}"
+
+# Setting ag as the default source for fzf (when you just run 'fzf')
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
