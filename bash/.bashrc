@@ -8,7 +8,9 @@ if [[ ${TERM_PROGRAM} == "iTerm.app" ]]; then
 fi
 
 export CLICOLOR=1
-export ALTERNATE_EDITOR='' EDITOR=emacsclient VISUAL=emacsclient
+export ALTERNATE_EDITOR=''
+export EDITOR="emacsclient -c"
+export VISUAL="emacsclient -c"
 
 if [ -f "$(brew --prefix bash-completion)/etc/bash_completion" ]; then
     source "$(brew --prefix bash-completion)/etc/bash_completion"

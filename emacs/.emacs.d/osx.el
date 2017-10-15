@@ -20,5 +20,3 @@
 ;;    brew install coreutils
 (setq insert-directory-program "gls")
 
-(use-package exec-path-from-shell
-	     :config (exec-path-from-shell-initialize))

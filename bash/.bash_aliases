@@ -4,8 +4,7 @@ alias pu=pushd
 alias po=popd
 alias dirs='dirs -v'
 alias rmtil='rm *~'
-alias em=emacsclient
-alias emacs=emacsclient
+alias em='emacsclient -c'
 
 calc () {
     bc -l <<< "$@"

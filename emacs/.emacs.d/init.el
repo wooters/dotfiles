@@ -122,12 +122,12 @@
   :config (global-git-gutter-mode +1))
 
 (use-package beacon
+  :if (not (daemonp))
   :ensure t
   :config (beacon-mode 1))
 
 (use-package matlab-mode
-  :ensure t)
-(add-to-list 'auto-mode-alist '("\\.m$" . matlab-mode))
+  :mode ("\\.m$" . matlab-mode))
 (setq matlab-indent-function t)
 (setq matlab-shell-command "octave")
 
@@ -230,9 +230,18 @@
     (local-set-key (kbd "M-RET") 'comint-accumulate)
     ))
 
+(put 'upcase-region 'disabled nil)
+
 ;;
 ;; OS-specific stuff
 ;;
+(use-package exec-path-from-shell
+  :ensure t
+  :if (memq window-system '(mac ns x))
+  :config
+  (setq exec-path-from-shell-variables '("PATH"))
+    (exec-path-from-shell-initialize))
+
 (defun load-local (file)
   (load (f-expand file user-emacs-directory)))
 
@@ -240,5 +249,5 @@
   (load-local "osx"))
 
 
-(put 'upcase-region 'disabled nil)
+
 
