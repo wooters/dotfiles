@@ -25,3 +25,5 @@ preview="--preview '(highlight -O xterm256 -t 4 {} 2> /dev/null || cat {} || tre
          --preview-window right"
 export FZF_CTRL_T_OPTS="-m --reverse --border --tabstop 4 ${preview}"
 
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
