@@ -19,9 +19,9 @@ export FZF_DEFAULT_OPTS="-m --reverse --border --tabstop 4"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # For CTRL-T (find files) command
-preview="--preview '[[ \$(file --mime {}) =~ binary ]] && echo {} no preview || \
-                 (highlight -O xterm256 -t 4 {} || cat {}) 2> /dev/null | head -500' \
+# Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
+#   for code highlighting.
+preview="--preview '(highlight -O xterm256 -t 4 {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200' \
          --preview-window right"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="-m --reverse --border --tabstop 4 ${preview}"
 
