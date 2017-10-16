@@ -8,22 +8,41 @@
 ;;          replace contents of rect w/ string: c-x r t
 ;;     - Start kbd macro: F3, stop macro: F4, playback: F4
 ;;
+(package-initialize)
 
-(require 'package)
+(defvar my-start-time (current-time)
+   "Time when Emacs was started")
+
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(tooltip-mode 0)
+
+(setq initial-scratch-message "")
+
+;; Don't load old .elc files when the .el file is newer
+(setq load-prefer-newer t)
+
+(setq inhibit-startup-screen t)
+
+(setq user-full-name "Chuck Wooters"
+       user-mail-address "ccwooters@gmail.com")
+(package-initialize nil)
 (setq package-enable-at-startup nil)
 
 ;; Add package repos before initialization
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages"))
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(package-initialize)
+(require 'package)
+(setq package-enable-at-startup nil
+       package-archives
+       '(("melpa" . "http://melpa.org/packages/")
+         ("gnu" . "http://elpa.gnu.org/packages/")
+         ("org" . "http://orgmode.org/elpa/")
+         ("marmalade" . "http://marmalade-repo.org/packages")))
 
-;; Install use-package if it is not already installed
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-(eval-when-compile
-  (require 'use-package))
+ (eval-when-compile
+   (require 'use-package))
 
 (unless (package-installed-p 's) ;; String package
   (package-refresh-contents)
@@ -51,15 +70,15 @@
   :ensure t)
 
 (use-package expand-region
-  :ensure t)
-(global-set-key (kbd "C-\\") 'er/expand-region)
+  :ensure t
+  :bind (("C-\\" . er/expand-region)))
 
 (use-package multiple-cursors
-	     :ensure t)
-(global-set-key (kbd "C-c r") 'mc/mark-all-in-region)
-(global-set-key (kbd "C-c >") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c <") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c a") 'mc/mark-all-like-this)
+  :ensure t
+  :bind (("C-c r" . mc/mark-all-in-region)
+         ("C-c >" . mc/mark-next-like-this)
+         ("C-c <" . mc/mark-previous-like-this)
+         ("C-c a" . mc/mark-all-like-this)))
 
 (use-package smex
   :ensure t
