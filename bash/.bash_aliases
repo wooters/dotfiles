@@ -23,24 +23,28 @@ function e {
     tmux split-window "emacsclient -c $@"
 }
 
-# Based on "cd global" bookmarks from: https://dmitryfrank.com/articles/shell_shortcuts
+# Directory "book marks" (based on "cd global" from: https://dmitryfrank.com/articles/shell_shortcuts)
+# Requires 'fzf', which can be installed using: brew install fzf
 #
-cdg_file="${HOME}/.cdg_paths"
-unalias cdg 2> /dev/null
-cdg() {
-   local dest_dir=$(cat $cdg_file | sed '/^\s*$/d' | fzf )
+
+# Where to store the list of book marks
+marks_file="${HOME}/.marks_paths"
+
+# Show the list of book marks in `fzf`. If a mark is selected in `fzf`
+# then cd to that dir.
+marks() {
+   local dest_dir=$(cat $marks_file | sed '/^\s*$/d' | fzf )
    if [[ $dest_dir != '' ]]; then
       cd $dest_dir
    fi
 }
-export -f cdg > /dev/null
 
-unalias cdg-add 2> /dev/null
-cdg-add () {
-    local curr_dir="${PWD} # $*"
-    if ! grep -Fxq "$curr_dir" $cdg_file; then
-        echo "$curr_dir" >> $cdg_file
-    fi
+# Add to the list of book marks
+# Examples:
+#   `marks_add`                   # add the current dir
+#   `marks_add project base dir`  # add the current dir and the comment "project base dir"
+marks_add() {
+    echo "${PWD} # $*" | cat $marks_file - | sort -u > ${marks_file}.new && mv ${marks_file}.new $marks_file
 }
-export -f cdg-add > /dev/null
+
 
