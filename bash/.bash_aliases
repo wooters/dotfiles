@@ -5,6 +5,7 @@ alias po=popd
 alias dirs='dirs -v'
 alias rmtil='rm *~'
 alias em='emacsclient -c'
+alias ag='ag $* --pager=less'
 
 calc () {
     bc -l <<< "$@"

@@ -11,6 +11,7 @@ export CLICOLOR=1
 export ALTERNATE_EDITOR=''
 export EDITOR="emacsclient -c"
 export VISUAL="emacsclient -c"
+export LESS="-R"
 
 if [ -f "$(brew --prefix bash-completion)/etc/bash_completion" ]; then
     source "$(brew --prefix bash-completion)/etc/bash_completion"
