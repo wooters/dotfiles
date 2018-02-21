@@ -4,7 +4,7 @@ alias pu=pushd
 alias po=popd
 alias dirs='dirs -v'
 alias rmtil='rm *~'
-alias em='emacsclient -c'
+alias em='emacsclient -c -nw'
 alias ag='ag $* --pager=less'
 
 calc () {
@@ -21,7 +21,7 @@ alias nw='tmux new-window'
 # Splits the current window vertically and edits a given file
 # in the lower tmux window
 function e {
-    tmux split-window "emacsclient -c $@"
+    tmux split-window "emacsclient -c -nw $@"
 }
 
 # Directory "book marks" (based on "cd global" from: https://dmitryfrank.com/articles/shell_shortcuts)
