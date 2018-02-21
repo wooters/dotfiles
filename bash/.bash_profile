@@ -1,4 +1,5 @@
-PATH="$HOME/.cargo/bin:$PATH"
+PATH="$HOME/.cargo/bin:${PATH}"
+PATH="/usr/local/opt/python/libexec/bin:${PATH}"
 PATH="${HOME}/bin:${PATH}"
 
 if [[ -f "${HOME}/.bash_profile_local" ]]; then
