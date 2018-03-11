@@ -284,5 +284,5 @@
 
 ;; For more info on the Hack font see:
 ;;   https://github.com/source-foundry/Hack
-(set-default-font "Hack:pixelsize=12")
+(set-default-font "Hack:pixelsize=13")
 
