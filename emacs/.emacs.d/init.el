@@ -56,7 +56,6 @@
 (eval-when-compile
   (require 'f))
 
-(require 'diminish)
 (require 'bind-key)
 
 ;;
