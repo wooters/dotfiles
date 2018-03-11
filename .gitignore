@@ -6,3 +6,5 @@ emacs/.emacs.d/ac-comphist.dat
 /emacs/.emacs.d/places
 /emacs/.emacs.d/ido.last
 emacs/.emacs.d/srecode-map.el
+emacs/.emacs.d/eshell
+emacs/.emacs.d/tramp

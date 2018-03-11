@@ -130,7 +130,6 @@
 (add-to-list 'auto-mode-alist '("\\.markdown$" . gfm-mode))
 
 (use-package scala-mode
-  :ensure t
   :interpreter
   ("scala" . scala-mode))
 
@@ -283,5 +282,7 @@
 (setq org-babel-python-command (executable-find "python3"))
 (setq org-confirm-babel-evaluate 'nil)
 
-(set-default-font "Hack")
+;; For more info on the Hack font see:
+;;   https://github.com/source-foundry/Hack
+(set-default-font "hack")
 
