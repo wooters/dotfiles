@@ -130,6 +130,7 @@
 (add-to-list 'auto-mode-alist '("\\.markdown$" . gfm-mode))
 
 (use-package scala-mode
+  :ensure t
   :interpreter
   ("scala" . scala-mode))
 
@@ -281,4 +282,6 @@
    (python . t)))
 (setq org-babel-python-command (executable-find "python3"))
 (setq org-confirm-babel-evaluate 'nil)
+
+(set-default-font "Hack")
 

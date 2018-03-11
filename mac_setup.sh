@@ -39,6 +39,9 @@ brew cask install firefox
 brew cask install witch
 brew cask install torbrowser
 
+brew tap caskroom/fonts
+brew cask install font-hack
+
 # brew installs
 brew install dirmngr libusb-compat readline
 brew install gnupg2 gnutls glib coreutils
