@@ -53,6 +53,7 @@ elif [ "$(uname -s)" == "Linux" ]; then
     [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
+    # Git prompt
     GIT_PROMPT_ONLY_IN_REPO=1
     source ~/.bash-git-prompt/gitprompt.sh
 

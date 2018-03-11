@@ -130,8 +130,10 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . gfm-mode))
 
-(use-package scala-mode2
-  :ensure t)
+(use-package scala-mode
+  :interpreter
+  ("scala" . scala-mode))
+
 
 (use-package sbt-mode
   :ensure t)
