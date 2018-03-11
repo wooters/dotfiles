@@ -268,6 +268,17 @@
 (when (eq system-type 'darwin)
   (load-local "osx"))
 
-
-
+;;
+;; active babel languages (org-mode)
+;;
+;; for more info:
+;;   https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html
+;;
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((sh . t)
+   (scala . t)
+   (python . t)))
+(setq org-babel-python-command (executable-find "python3"))
+(setq org-confirm-babel-evaluate 'nil)
 
