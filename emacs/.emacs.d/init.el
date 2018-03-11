@@ -17,6 +17,10 @@
 (tool-bar-mode 0)
 (tooltip-mode 0)
 
+;; For more info on the Hack font see:
+;;   https://github.com/source-foundry/Hack
+(set-default-font "Hack:pixelsize=13")
+
 (setq initial-scratch-message "")
 
 ;; Don't load old .elc files when the .el file is newer
@@ -282,7 +286,5 @@
 (setq org-babel-python-command (executable-find "python3"))
 (setq org-confirm-babel-evaluate 'nil)
 
-;; For more info on the Hack font see:
-;;   https://github.com/source-foundry/Hack
-(set-default-font "Hack:pixelsize=13")
+
 
