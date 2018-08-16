@@ -78,6 +78,11 @@ if [[ -f ${venv_sh} ]]; then
     }
 fi
 
+# Chage the color for dates in `exa`. The default blue
+# is unreadable with a black background. See https://the.exa.website/docs/colour-themes
+# for more info
+export EXA_COLORS="da=1;34"
+
 # Load aliases
 if [[ -f "${HOME}/.bash_aliases" ]]; then
     source "${HOME}/.bash_aliases"
