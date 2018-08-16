@@ -11,7 +11,7 @@ if [ ! -f ~/.ssh/id_rsa.pub ]; then
     # See: https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
     pbcopy < ~/.ssh/id_rsa.pub
     echo "Go to Github and add your public key (which has been copied to the paste buffer)"
-    echo -n "Press [ENTER] when ready to continue..."
+    echo "Press [ENTER] when ready to continue..."
     read -e
     
 fi
@@ -25,6 +25,8 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 
 # OS X developer tools
 xcode-select --install
+echo "Press [ENTER] when xcode is finished"
+read -e
 
 # get homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -34,7 +36,6 @@ brew tap caskroom/cask
 brew cask install java
 brew cask install iterm2
 brew cask install google-chrome
-brew cask install google-drive
 brew cask install firefox
 brew cask install witch
 brew cask install torbrowser
@@ -47,7 +48,7 @@ brew install dirmngr libusb-compat readline
 brew install gnupg2 gnutls glib coreutils
 brew install sqlite gdbm gettext pcre xz d-bus
 brew install wget tree p7zip stow tmux sox
-brew install emacs
+brew install emacs --with-cocoa
 brew install the_silver_searcher  # ag
 brew install exa # better ls
 brew install highlight
@@ -71,7 +72,6 @@ brew install scala sbt  # requires java (see 'brew cask install java' above)
 
 # R
 brew install Caskroom/cask/xquartz
-brew tap homebrew/science
 brew install R
 brew install Caskroom/cask/rstudio
 brew cask install basictex
@@ -81,9 +81,9 @@ brew install libsvg curl libxml2 gdal geos boost
 # We can install these using the default python and when
 # creating a virtual environment, we can specify which
 # python we want using, for example:
-#  mkvirtualenv --python=python3.5
-pip install virtualenv
-pip install virtualenvwrapper
+#  mkvirtualenv --python=python3
+PIP_REQUIRE_VIRTUALENV=false pip install virtualenv
+PIP_REQUIRE_VIRTUALENV=false pip install virtualenvwrapper
 
 # Install some python packages needed by emacs
 # We need to install these for each version of
@@ -95,6 +95,9 @@ pip install virtualenvwrapper
 local_dot_repo=${HOME}/.dotfiles
 if [ ! -d ${local_dot_repo} ]; then
     git clone git@github.com:wooters/dotfiles.git ${local_dot_repo}
+    # these two files are in the dotfiles/bash subdir, so rm them here
+    rm -f .bashrc
+    rm -f .fzf.bash
     cd ${local_dot_repo}
     stow bash
     stow tmux
