@@ -1,4 +1,3 @@
-
 export CLICOLOR=1
 export ALTERNATE_EDITOR=''
 export EDITOR="emacsclient -c"
@@ -64,19 +63,7 @@ if [ -f "${HOME}/.git-completion.bash" ]; then
     source ${HOME}/.git-completion.bash
 fi
 
-# virtualenv/virtualenvwrapaper
-venv_sh=/usr/local/bin/virtualenvwrapper.sh
-if [[ -f ${venv_sh} ]]; then
-    source ${venv_sh}
-    # pip should only run if there is a virtualenv currently activated
-    export PIP_REQUIRE_VIRTUALENV=true
-    gpip2(){
-	PIP_REQUIRE_VIRTUALENV="" /usr/local/bin/pip2 "$@"
-    }
-    gpip3(){
-	PIP_REQUIRE_VIRTUALENV="" /usr/local/bin/pip3 "$@"
-    }
-fi
+export PIPENV_VENV_IN_PROJECT=1
 
 # Chage the color for dates in `exa`. The default blue
 # is unreadable with a black background. See https://the.exa.website/docs/colour-themes
@@ -88,7 +75,5 @@ if [[ -f "${HOME}/.bash_aliases" ]]; then
     source "${HOME}/.bash_aliases"
 fi
 
-
-
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
