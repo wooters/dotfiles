@@ -55,6 +55,7 @@ brew install highlight
 brew install fzf 
 $(brew --prefix)/opt/fzf/install
 brew install bash_completion
+brew install fpp  # facebook path-picker https://facebook.github.io/PathPicker/
 
 # Git
 brew install git
@@ -65,7 +66,10 @@ curl -o .git-completion.bash https://raw.githubusercontent.com/git/git/master/co
 brew install mongodb
 
 # python
-brew install python python3
+brew install python3 pipenv
+
+# Install some python packages needed by emacs
+/usr/local/bin/pip3 install flake8 jedi autopep8
 
 # Scala
 brew install scala sbt  # requires java (see 'brew cask install java' above)
@@ -76,20 +80,6 @@ brew install R
 brew install Caskroom/cask/rstudio
 brew cask install basictex
 brew install libsvg curl libxml2 gdal geos boost
-
-# Install virtualenv and virtualenvwrapper for python
-# We can install these using the default python and when
-# creating a virtual environment, we can specify which
-# python we want using, for example:
-#  mkvirtualenv --python=python3
-PIP_REQUIRE_VIRTUALENV=false pip install virtualenv
-PIP_REQUIRE_VIRTUALENV=false pip install virtualenvwrapper
-
-# Install some python packages needed by emacs
-# We need to install these for each version of
-# python we have installed...
-/usr/local/bin/pip2 install flake8 jedi autopep8
-/usr/local/bin/pip3 install flake8 jedi autopep8
 
 # set up dotfiles
 local_dot_repo=${HOME}/.dotfiles
