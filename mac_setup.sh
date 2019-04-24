@@ -49,10 +49,15 @@ brew install gnupg2 gnutls glib coreutils
 brew install sqlite gdbm gettext pcre xz d-bus
 brew install wget tree p7zip stow tmux sox
 brew install emacs --with-cocoa
-brew install the_silver_searcher  # ag
+brew install cloc  # count lines of code
+brew install the_silver_searcher  # ag: code search similar to ack
+brew install ripgrep  # rg: fast grep/ack
+brew install tldr  # simplified man pages
+brew install bat  # clone of cat(1) with syntax highlighting
 brew install exa # better ls
+brew install 2mol/tools/pboy  # paperboy: pdf manager
 brew install highlight
-brew install fzf 
+brew install fzf  # command line fuzzy search
 $(brew --prefix)/opt/fzf/install
 brew install bash_completion
 brew install fpp  # facebook path-picker https://facebook.github.io/PathPicker/
