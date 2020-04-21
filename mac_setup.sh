@@ -37,8 +37,9 @@ brew cask install java
 brew cask install iterm2
 brew cask install google-chrome
 brew cask install firefox
-brew cask install witch
-brew cask install torbrowser
+brew cask install microsoft-edge
+brew cask install witch  # window switching
+brew cask install rectangle  # window management
 
 brew tap caskroom/fonts
 brew cask install font-hack
