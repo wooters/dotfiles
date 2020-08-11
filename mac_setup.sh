@@ -62,6 +62,7 @@ brew install fzf  # command line fuzzy search
 $(brew --prefix)/opt/fzf/install
 brew install bash_completion
 brew install fpp  # facebook path-picker https://facebook.github.io/PathPicker/
+brew instll grip  # markdown previewer
 
 # Git
 brew install git
@@ -69,7 +70,7 @@ brew install bash-git-prompt
 curl -o .git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
 # mongodb (including the bsondump utility)
-brew install mongodb
+# brew install mongodb
 
 # python
 brew install python3 pipenv
@@ -78,14 +79,14 @@ brew install python3 pipenv
 /usr/local/bin/pip3 install flake8 jedi autopep8
 
 # Scala
-brew install scala sbt  # requires java (see 'brew cask install java' above)
+# brew install scala sbt  # requires java (see 'brew cask install java' above)
 
 # R
-brew install Caskroom/cask/xquartz
-brew install R
-brew install Caskroom/cask/rstudio
-brew cask install basictex
-brew install libsvg curl libxml2 gdal geos boost
+# brew install Caskroom/cask/xquartz
+# brew install R
+# brew install Caskroom/cask/rstudio
+# brew cask install basictex
+# brew install libsvg curl libxml2 gdal geos boost
 
 # set up dotfiles
 local_dot_repo=${HOME}/.dotfiles
