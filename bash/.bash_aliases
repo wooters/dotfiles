@@ -1,5 +1,10 @@
-alias l='exa -F'
-alias ll='exa -l -F --git --color-scale -s modified'
+if [[ -f /usr/local/bin/exa ]]; then
+   alias l='exa -F'
+   alias ll='exa -l -F --git --color-scale -s modified'
+else
+   alias l=ls
+   alias ll='ls -al'
+fi
 alias pu=pushd
 alias po=popd
 alias dirs='dirs -v'
