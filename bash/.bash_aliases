@@ -2,8 +2,8 @@ if [[ -f /usr/local/bin/exa ]]; then
    alias l='exa -F'
    alias ll='exa -l -F --git --color-scale -s modified'
 else
-   alias l=ls
-   alias ll='ls -al'
+   alias l='ls --color -F'
+   alias ll='ls -al --color -F'
 fi
 alias pu=pushd
 alias po=popd
