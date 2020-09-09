@@ -4,6 +4,8 @@ Repo to hold my config files. (Also, a script for setting up my environment on a
 ## Install
 
 ```
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+git clone --depth 1 https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt
 git clone git@github.com:wooters/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 stow bash
