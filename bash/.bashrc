@@ -53,8 +53,8 @@ elif [ "$(uname -s)" == "Linux" ]; then
     . /usr/share/bash-completion/bash_completion
 
     # Git prompt
-    GIT_PROMPT_ONLY_IN_REPO=1
-    source ~/.bash-git-prompt/gitprompt.sh
+    # GIT_PROMPT_SHOW_UNTRACKED_FILES=no
+    source ${HOME}/.bash-git-prompt/gitprompt.sh
 
 fi
 
@@ -63,7 +63,7 @@ if [ -f "${HOME}/.git-completion.bash" ]; then
     source ${HOME}/.git-completion.bash
 fi
 
-export PIPENV_VENV_IN_PROJECT=1
+# export PIPENV_VENV_IN_PROJECT=1
 
 # Chage the color for dates in `exa`. The default blue
 # is unreadable with a black background. See https://the.exa.website/docs/colour-themes
