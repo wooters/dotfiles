@@ -54,6 +54,7 @@ elif [ "$(uname -s)" == "Linux" ]; then
 
     # Git prompt
     # GIT_PROMPT_SHOW_UNTRACKED_FILES=no
+    GIT_PROMPT_ONLY_IN_REPO=0
     source ${HOME}/.bash-git-prompt/gitprompt.sh
 
 fi
