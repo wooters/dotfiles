@@ -14,7 +14,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
         export LSCOLORS=gacacxdxbxegedabagacad
     fi
     
-    if [ -f "$(brew --prefix bash-completion)/etc/bash_completion" ]; then
+    if [ -f "$(/usr/local/bin/brew --prefix bash-completion)/etc/bash_completion" ]; then
         source "$(brew --prefix bash-completion)/etc/bash_completion"
     fi
 
@@ -22,7 +22,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
         source "${HOME}/projects/codalab_bash/codalab_bash.sh"
     fi
 
-    if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+    if [ -f "$(/usr/local/bin/brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
         
         function prompt_callback {
             local cl_prompt
