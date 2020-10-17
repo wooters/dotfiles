@@ -53,4 +53,7 @@ marks_add() {
     echo "${PWD} # $*" | cat $marks_file - | sort -u > ${marks_file}.new && mv ${marks_file}.new $marks_file
 }
 
-
+# adding an alias to fix the issue where 'brew doctor' reports config
+# problems with pyenv shims. See this for more info:
+#  https://github.com/pyenv/pyenv/issues/106#issuecomment-625334706
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
