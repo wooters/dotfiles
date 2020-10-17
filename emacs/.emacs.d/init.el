@@ -2,13 +2,42 @@
 ;; NOTES:
 ;;
 ;;     - To reload a file: M-x load-file
+;;     - To eval the code in the current buffer: M-x eval-buffer
 ;;     - To execute a sexp, move the point to the end of the sexp and press c-x c-e
 ;;     - To see the value of a variable, move point on top of var, then: c-h v
 ;;     - Rectangle mode:
 ;;          replace contents of rect w/ string: c-x r t
 ;;     - Start kbd macro: F3, stop macro: F4, playback: F4
 ;;
+
+(require 'package)
+
+(setq-default
+ load-prefer-newer t
+ package-enable-at-startup nil)
+
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+
 (package-initialize)
+
+(unless (and (package-installed-p 'delight)
+             (package-installed-p 'use-package))
+  (package-refresh-contents)
+  (package-install 'delight t)
+  (package-install 'use-package t))
+
+(setq-default
+ use-package-always-defer t
+ use-package-always-ensure t)
+
+(package-initialize nil)
+(setq package-enable-at-startup nil)
+
+(use-package org :ensure org-plus-contrib)
+
+
+(setq inhibit-startup-screen t)
 
 (defvar my-start-time (current-time)
    "Time when Emacs was started")
@@ -23,30 +52,9 @@
 
 (setq initial-scratch-message "")
 
-;; Don't load old .elc files when the .el file is newer
-(setq load-prefer-newer t)
-
-(setq inhibit-startup-screen t)
-
 (setq user-full-name "Chuck Wooters"
        user-mail-address "ccwooters@gmail.com")
-(package-initialize nil)
-(setq package-enable-at-startup nil)
 
-;; Add package repos before initialization
-(require 'package)
-(setq package-enable-at-startup nil
-       package-archives
-       '(("melpa" . "http://melpa.org/packages/")
-         ("gnu" . "http://elpa.gnu.org/packages/")
-         ("org" . "http://orgmode.org/elpa/")
-         ("marmalade" . "http://marmalade-repo.org/packages")))
-
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
- (eval-when-compile
-   (require 'use-package))
 
 (unless (package-installed-p 's) ;; String package
   (package-refresh-contents)
@@ -95,15 +103,14 @@
   :diminish yas-minor-mode
   :commands yas-global-mode)
 
-(setq yas-snippet-dirs '("/Users/wooters/projects/yasnippet-snippets"))
+;(setq yas-snippet-dirs '("/Users/wooters/projects/yasnippet-snippets"))
 (yas-global-mode 1)
 
-(use-package org
-  :ensure t)
+
 
 (use-package dumb-jump
   :ensure t)
-  
+
 (use-package cc-mode
   :ensure t
   :bind (("C-c RET" . ff-find-related-file)
@@ -220,7 +227,7 @@
     ;; sbt-find-definitions is a command that tries to find (with grep)
     ;; the definition of the thing at point.
     (local-set-key (kbd "M-.") 'sbt-find-definitions)
-    
+
     ;; use sbt-run-previous-command to re-compile your code after changes
     (local-set-key (kbd "C-x '") 'sbt-run-previous-command)
 
@@ -278,13 +285,20 @@
 ;; for more info:
 ;;   https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html
 ;;
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((sh . t)
-   (scala . t)
-   (python . t)))
-(setq org-babel-python-command (executable-find "python3"))
-(setq org-confirm-babel-evaluate 'nil)
+;(org-babel-do-load-languages
+; 'org-babel-load-languages
+; '((sh . t)
+;   (scala . t)
+;   (python . t)))
+;(setq org-babel-python-command (executable-find "python3"))
+;(setq org-confirm-babel-evaluate 'nil)
 
 
-
+(use-package whitespace
+  :init
+  (dolist (hook '(prog-mode-hook text-mode-hook))
+    (add-hook hook #'whitespace-mode))
+  (add-hook 'before-save-hook #'whitespace-cleanup)
+  :config
+  (setq whitespace-line-column 80) ;; limit line length
+  (setq whitespace-style '(face tabs empty trailing lines-tail)))

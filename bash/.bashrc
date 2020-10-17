@@ -13,7 +13,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
 
         export LSCOLORS=gacacxdxbxegedabagacad
     fi
-    
+
     if [ -f "$(/usr/local/bin/brew --prefix bash-completion)/etc/bash_completion" ]; then
         source "$(brew --prefix bash-completion)/etc/bash_completion"
     fi
@@ -23,7 +23,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
     fi
 
     if [ -f "$(/usr/local/bin/brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-        
+
         function prompt_callback {
             local cl_prompt
             if [ -z ${HAVE_CL_BASH+x} ]; then
@@ -40,7 +40,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
                 fi
             fi
         }
-        
+
         # For customization info see: https://github.com/magicmonty/bash-git-prompt
         GIT_PROMPT_ONLY_IN_REPO=0
         __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
@@ -78,4 +78,3 @@ if [[ -f "${HOME}/.bash_aliases" ]]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
