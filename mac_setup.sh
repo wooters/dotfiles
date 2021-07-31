@@ -41,8 +41,8 @@ brew install microsoft-edge
 brew install witch  # window switching
 brew install rectangle  # window management
 
-brew tap caskroom/fonts
-brew cask install font-hack
+brew tap homebrew/cask-fonts
+brew install font-hack
 
 # brew installs
 brew install dirmngr libusb-compat readline
