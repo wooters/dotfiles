@@ -45,6 +45,16 @@ brew tap homebrew/cask-fonts
 brew install font-hack
 
 # brew installs
+
+# python
+brew install pyenv
+# run 'pyenv install --list' to see a list of available versions
+# and then run 'pyenv install <version>' for each version you want
+pyenv install 3.9.6
+pyenv global 3.9.6
+pip install --upgrade pip
+pip install flake8 jedi autopep8 # for emacs, install these into the global python
+
 brew install dirmngr libusb-compat readline
 brew install gnupg2 gnutls glib coreutils
 brew install sqlite gdbm gettext pcre xz d-bus
@@ -71,12 +81,6 @@ curl -o .git-completion.bash https://raw.githubusercontent.com/git/git/master/co
 
 # mongodb (including the bsondump utility)
 # brew install mongodb
-
-# python
-brew install python3 pipenv
-
-# Install some python packages needed by emacs
-/usr/local/bin/pip3 install flake8 jedi autopep8
 
 # Scala
 # brew install scala sbt  # requires java (see 'brew cask install java' above)
