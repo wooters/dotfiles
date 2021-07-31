@@ -1,7 +1,7 @@
 export CLICOLOR=1
 export ALTERNATE_EDITOR=''
-export EDITOR="emacsclient -c"
-export VISUAL="emacsclient -c"
+export EDITOR="emacsclient -nw"
+export VISUAL="emacsclient -nw"
 export LESS="-R"
 
 if [ "$(uname -s)" == "Darwin" ]; then
@@ -14,13 +14,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
         export LSCOLORS=gacacxdxbxegedabagacad
     fi
 
-    if [ -f "$(/usr/local/bin/brew --prefix bash-completion)/etc/bash_completion" ]; then
-        source "$(brew --prefix bash-completion)/etc/bash_completion"
-    fi
-
-    if [ -f "${HOME}/projects/codalab_bash/codalab_bash.sh" ]; then
-        source "${HOME}/projects/codalab_bash/codalab_bash.sh"
-    fi
+    [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
     if [ -f "$(/usr/local/bin/brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
 
