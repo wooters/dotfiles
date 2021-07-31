@@ -59,7 +59,7 @@ brew install dirmngr libusb-compat readline
 brew install gnupg2 gnutls glib coreutils
 brew install sqlite gdbm gettext pcre xz d-bus
 brew install wget tree p7zip stow tmux sox
-brew install emacs --with-cocoa
+brew install emacs
 brew install cloc  # count lines of code
 brew install the_silver_searcher  # ag: code search similar to ack
 brew install ripgrep  # rg: fast grep/ack
