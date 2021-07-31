@@ -70,7 +70,7 @@ brew install 2mol/tools/pboy  # paperboy: pdf manager
 brew install highlight
 brew install fzf  # command line fuzzy search
 $(brew --prefix)/opt/fzf/install
-brew install bash_completion
+brew install bash-completion
 brew install fpp  # facebook path-picker https://facebook.github.io/PathPicker/
 brew instll grip  # markdown previewer
 
