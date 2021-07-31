@@ -28,21 +28,21 @@ xcode-select --install
 echo "Press [ENTER] when xcode is finished"
 read -e
 
-# get homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# get homebrew (see https://brew.sh/)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # brew cask installs
-brew tap caskroom/cask
-brew cask install java
-brew cask install iterm2
-brew cask install google-chrome
-brew cask install firefox
-brew cask install microsoft-edge
-brew cask install witch  # window switching
-brew cask install rectangle  # window management
+brew tap homebrew/cask
+brew install java
+brew install iterm2
+brew install google-chrome
+brew install firefox
+brew install microsoft-edge
+brew install witch  # window switching
+brew install rectangle  # window management
 
-brew tap caskroom/fonts
-brew cask install font-hack
+brew tap homebrew/cask-fonts
+brew install font-hack
 
 # brew installs
 brew install dirmngr libusb-compat readline
