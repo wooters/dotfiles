@@ -54,6 +54,9 @@ elif [ "$(uname -s)" == "Linux" ]; then
 
 fi
 
+if [ -f "/usr/local/bin/aws_completer" ]; then
+    complete -C '/usr/local/bin/aws_completer' aws
+fi
 
 if [ -f "${HOME}/.git-completion.bash" ]; then
     source ${HOME}/.git-completion.bash
