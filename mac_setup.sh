@@ -1,21 +1,21 @@
 #!/bin/bash
 # Set up a new mac
 
-# Set up ssh key if needed
-if [ ! -f ~/.ssh/id_rsa.pub ]; then
+# Assumes:
+#  - XCode command-line tools are installed (`xcode-select --install`)
+#  - HomeBrew is installed (see https://brew.sh/)
 
-    ssh-keygen -t rsa
-    ssh-add
-
-    # Be sure to add the newly-generated public key to your Github account
-    # See: https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
-    pbcopy < ~/.ssh/id_rsa.pub
-    echo "Go to Github and add your public key (which has been copied to the paste buffer)"
-    echo "Press [ENTER] when ready to continue..."
-    read -e
-    
+# set up dotfiles
+local_dot_repo=${HOME}/.dotfiles
+if [ ! -d ${local_dot_repo} ]; then
+    git clone git@github.com:wooters/dotfiles.git ${local_dot_repo}
+    # this file is in the dotfiles/bash subdir, so remove it
+    rm -f .bashrc
+    cd ${local_dot_repo}
+    stow bash
+    stow tmux
+    stow emacs
 fi
-
 
 # 256 color in bash (requires iterm)
 # Put something like this in your .bashrc:
@@ -23,21 +23,10 @@ fi
 #   [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
-# OS X developer tools
-xcode-select --install
-echo "Press [ENTER] when xcode is finished"
-read -e
-
-# get homebrew (see https://brew.sh/)
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 # brew cask installs
 brew tap homebrew/cask
 brew install java
 brew install iterm2
-brew install google-chrome
-brew install firefox
-brew install microsoft-edge
 brew install witch  # window switching
 brew install rectangle  # window management
 
@@ -61,22 +50,20 @@ brew install sqlite gdbm gettext pcre xz d-bus
 brew install wget tree p7zip stow tmux sox
 brew install emacs
 brew install cloc  # count lines of code
-brew install the_silver_searcher  # ag: code search similar to ack
+# brew install the_silver_searcher  # ag: code search similar to ack
 brew install ripgrep  # rg: fast grep/ack
-brew install tldr  # simplified man pages
-brew install bat  # clone of cat(1) with syntax highlighting
+# brew install tldr  # simplified man pages
+# brew install bat  # clone of cat(1) with syntax highlighting
 brew install exa # better ls
-brew install 2mol/tools/pboy  # paperboy: pdf manager
+# brew install 2mol/tools/pboy  # paperboy: pdf manager
 brew install highlight
-brew install fzf  # command line fuzzy search
-$(brew --prefix)/opt/fzf/install
+
 brew install bash-completion
 brew install fpp  # facebook path-picker https://facebook.github.io/PathPicker/
 brew instll grip  # markdown previewer
 
 # Git
 brew install git
-brew install bash-git-prompt
 curl -o .git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
 # mongodb (including the bsondump utility)
@@ -91,19 +78,3 @@ curl -o .git-completion.bash https://raw.githubusercontent.com/git/git/master/co
 # brew install Caskroom/cask/rstudio
 # brew cask install basictex
 # brew install libsvg curl libxml2 gdal geos boost
-
-# set up dotfiles
-local_dot_repo=${HOME}/.dotfiles
-if [ ! -d ${local_dot_repo} ]; then
-    git clone git@github.com:wooters/dotfiles.git ${local_dot_repo}
-    # these two files are in the dotfiles/bash subdir, so rm them here
-    rm -f .bashrc
-    rm -f .fzf.bash
-    cd ${local_dot_repo}
-    stow bash
-    stow tmux
-    stow emacs
-fi
-
-
-
