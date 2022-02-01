@@ -1,5 +1,6 @@
 # dotfiles
-Repo to hold my config files. (Also, a script for setting up my environment on a new Mac.)
+
+Repo containing my config files. Mainly focused on setting up a new Mac.
 
 ## Setting up a new Mac
 
