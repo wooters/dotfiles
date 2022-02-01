@@ -4,6 +4,7 @@
 # Assumes:
 #  - XCode command-line tools are installed (`xcode-select --install`)
 #  - HomeBrew is installed (see https://brew.sh/)
+#  - GNU stow is installed (via homebrew)
 
 # set up dotfiles
 local_dot_repo=${HOME}/.dotfiles
