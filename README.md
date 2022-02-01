@@ -9,8 +9,21 @@ Repo containing my config files. Mainly focused on setting up a new Mac.
 1. Make `bash` the default shell: `chsh -s /bin/bash` (exit the shell, and start a new one for the rest of the steps.)
 2. Install the Xcode command-line tools: `xcode-select --install`
 3. Create an ssh key: `ssh-keygen -t rsa`
-4. Install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-5. Install gnu `stow`: `brew install stow`
+4. Install homebrew: 
+
+    ```
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+
+5. Upgrade to newer version of bash:
+
+    ```
+    brew install bash
+    sudo sh -c 'echo /usr/local/bin/bash >> /etc/shells'
+    chsh -s /usr/local/bin/bash
+    ```
+
+6. Install gnu `stow`: `brew install stow`
 
 ### Run the install script
 
