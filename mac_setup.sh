@@ -18,14 +18,18 @@ if [ ! -d ${local_dot_repo} ]; then
     stow emacs
 fi
 
+brew tap homebrew/cask
+
+# Git
+brew install git
+curl -o .git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+
 # 256 color in bash (requires iterm)
 # Put something like this in your .bashrc:
 #   BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 #   [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
-# brew cask installs
-brew tap homebrew/cask
 brew install java
 brew install iterm2
 brew install witch  # window switching
@@ -33,8 +37,6 @@ brew install rectangle  # window management
 
 brew tap homebrew/cask-fonts
 brew install font-hack
-
-# brew installs
 
 # python
 brew install pyenv
@@ -63,15 +65,11 @@ brew install bash-completion
 brew install fpp  # facebook path-picker https://facebook.github.io/PathPicker/
 brew instll grip  # markdown previewer
 
-# Git
-brew install git
-curl -o .git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-
 # mongodb (including the bsondump utility)
 # brew install mongodb
 
 # Scala
-# brew install scala sbt  # requires java (see 'brew cask install java' above)
+# brew install scala sbt  # requires java (see 'brew install java' above)
 
 # R
 # brew install Caskroom/cask/xquartz
