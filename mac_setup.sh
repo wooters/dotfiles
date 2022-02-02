@@ -24,20 +24,6 @@ brew tap homebrew/cask
 brew install git
 curl -o .git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
-# 256 color in bash (requires iterm)
-# Put something like this in your .bashrc:
-#   BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-#   [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-
-brew install java
-brew install iterm2
-brew install witch  # window switching
-brew install rectangle  # window management
-
-brew tap homebrew/cask-fonts
-brew install font-hack
-
 # python
 brew install pyenv
 # run 'pyenv install --list' to see a list of available versions
@@ -47,10 +33,21 @@ pyenv global 3.9.6
 pip install --upgrade pip
 pip install flake8 jedi autopep8 # for emacs, install these into the global python
 
-brew install dirmngr libusb-compat readline
-brew install gnupg2 gnutls glib coreutils
-brew install sqlite gdbm gettext pcre xz d-bus
-brew install wget tree p7zip stow tmux sox
+# 256 color in bash (requires iterm)
+# Put something like this in your .bashrc:
+#   BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+#   [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+
+brew install java && sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+brew install iterm2
+brew install witch  # window switching
+brew install rectangle  # window management
+
+brew tap homebrew/cask-fonts
+brew install font-hack
+
+brew install wget tree p7zip tmux sox
 brew install emacs
 brew install cloc  # count lines of code
 # brew install the_silver_searcher  # ag: code search similar to ack
