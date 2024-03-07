@@ -18,8 +18,6 @@ if [ ! -d ${local_dot_repo} ]; then
     stow emacs
 fi
 
-brew tap homebrew/cask
-
 # Git
 brew install git
 curl -o .git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
