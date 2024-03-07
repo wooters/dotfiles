@@ -16,7 +16,7 @@ if [ "$(uname -s)" == "Darwin" ]; then
 
     [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
-    if [ -f "$(/usr/local/bin/brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+    if [ -f "$(/opt/homebrew/bin/brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
 
         function prompt_callback {
             local cl_prompt
