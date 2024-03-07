@@ -1,5 +1,6 @@
 #!/bin/bash
 # Set up a new mac
+set -e
 
 # Assumes:
 #  - XCode command-line tools are installed (`xcode-select --install`)
