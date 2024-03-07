@@ -19,8 +19,8 @@ Repo containing my config files. Mainly focused on setting up a new Mac.
 
     ```
     brew install bash
-    sudo sh -c 'echo /usr/local/bin/bash >> /etc/shells'
-    chsh -s /usr/local/bin/bash
+    sudo sh -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
+    chsh -s /opt/homebrew/bin/bash
     ```
 
 6. Install gnu `stow`: `brew install stow`
