@@ -29,8 +29,8 @@ brew install pyenv
 # and then run 'pyenv install <version>' for each version you want
 pyenv install 3.9.6
 pyenv global 3.9.6
-pip install --upgrade pip
-pip install flake8 jedi autopep8 # for emacs, install these into the global python
+pyenv exec pip install --upgrade pip
+pyenv exec pip install flake8 jedi autopep8 # for emacs, install these into the global python
 
 # 256 color in bash (requires iterm)
 # Put something like this in your .bashrc:
