@@ -1,6 +1,5 @@
 #!/bin/bash
 # Set up a new mac
-set -e
 
 # Assumes:
 #  - XCode command-line tools are installed (`xcode-select --install`)
@@ -29,6 +28,16 @@ brew install pyenv
 # and then run 'pyenv install <version>' for each version you want
 pyenv install 3.9.6
 pyenv global 3.9.6
+
+# set up the pyenv environment
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+
 pyenv exec pip install --upgrade pip
 pyenv exec pip install flake8 jedi autopep8 # for emacs, install these into the global python
 
